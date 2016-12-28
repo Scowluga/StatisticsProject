@@ -39,7 +39,7 @@ function endgame() { // Ends the game.
 	// rounds and ticketCost contain information 
 	document.getElementById("firstsection").style.display="none"; 
 	document.getElementById("secondsection").style.display="none"; 
-	document.getElementById("lasted").innerHTML = (rounds).toString(); 
+	document.getElementById("lasted").innerHTML = (rounds - 1).toString(); 
 	document.getElementById("cost").innerHTML = (ticketCost).toString(); 
 	unfade(document.getElementById("lastsection")); 
 }
