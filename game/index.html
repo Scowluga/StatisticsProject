@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" type="image/gif" href="../res/dice.png" />
+	<title>Game of Chance</title>
+</head>
+<body class="body">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+	<div id="introsection">
+		<h1>Introduction</h1>
+		<p>You've heard about an amazing probability game, but you have to buy a ticket for it. The ticket costs $<span id="ticketCost">20</span>.</p>
+		<button type="button" class="btn btn-primary" onclick="buyTicket()" id="buybutton">Buy Ticket</button>
+
+		<div id="description" style="opacity: 0;">
+			<p>The ticket pays for 20 trials of the probability game. At any trial, you have the option to back out. </p>
+			<button type="button" class="btn btn-primary" onclick="begingame()">Start</button>
+		</div>
+	</div>
+
+	<div id="firstsection" style="display:none;">
+		<div class="accentDiv">
+			<p class="accentInfo">Ticket Cost: $<span id="ticketCost2"</p>
+			<p class="accentInfo">Money Loss/Gained: $<span id="moneychange">0</span></p>
+			<p class="accentInfo" style="display:inline;">Trial: <span id="trialnumber">1</span>/20</p>
+		</div>
+		<p>Upon start, a random number between 0-10 (inclusive) will be generated. If the number is even, you will lose that much money, but if the number is odd, you will gain that much money. </p>
+		<p>Do you continue? Or back out, wasting your ticket? 
+		<div id="buttonsdisplay">
+			<button type="button" class="btn btn-danger" onclick="endgame()" style="display:inline-block;">Back out</button>
+			<button type="button" class="btn btn-success" onclick="proceed()" style="display:inline-block;"">Continue</button>
+		</div>
+	</div>
+
+	<div id="secondsection" style="display:none;">
+		<p id="rng">1</p>
+		<div id="hiddenobj" style="opacity: 0;">
+			<p id="roundDescription">Loss / gain : ____</p>
+			<div id="buttonsdisplay">
+				<button type="button" class="btn btn-danger" onclick="endgame()" style="display:inline-block;">Back out</button>
+			<button type="button" class="btn btn-success" onclick="proceed()" style="display:inline-block;"">Continue</button>
+		</div>
+		</div>
+	</div>
+
+	<div id="lastsection" style="opacity:0;">
+		<h3>Congratulations! You lasted <span id="lasted">0</span> rounds!</h3>
+		<p>Thanks for playing. Please fill out the form <a href="http://www.facebook.com">here</a></p>
+	</div>
+
+	<script> createTicket() </script>
+</body>
+</html>

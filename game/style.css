@@ -1,0 +1,21 @@
+
+.body {
+	margin: 10px;
+}
+#rng {
+	margin-left: 10px;
+	color:blue;
+	font-size: 20px;
+}
+
+.accentDiv {
+	display:inline-block;
+	border-radius: 10px;
+	background-color: blue;
+	margin-bottom: 15px;
+	padding:5px;
+}
+
+.accentInfo {
+	color:white;
+}
