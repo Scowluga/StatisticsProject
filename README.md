@@ -1,3 +1,2 @@
 Data Management Survey Website 
-
-Link: https://scowluga.github.io/StatisticsProject/.
+<a href="https://scowluga.github.io/StatisticsProject/.">Click here for link</a>
