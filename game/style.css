@@ -11,11 +11,16 @@
 .accentDiv {
 	display:inline-block;
 	border-radius: 10px;
-	background-color: blue;
+	background-color: gray;
 	margin-bottom: 15px;
 	padding:5px;
 }
 
 .accentInfo {
+	color:white;
+}
+
+/*For the href in the button for the link. Must be white*/
+.ref { 
 	color:white;
 }

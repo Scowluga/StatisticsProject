@@ -39,7 +39,8 @@ function endgame() { // Ends the game.
 	// rounds and ticketCost contain information 
 	document.getElementById("firstsection").style.display="none"; 
 	document.getElementById("secondsection").style.display="none"; 
-	document.getElementById("lasted").innerHTML = (rounds - 1).toString(); 
+	document.getElementById("lasted").innerHTML = (rounds).toString(); 
+	document.getElementById("cost").innerHTML = (ticketCost).toString(); 
 	unfade(document.getElementById("lastsection")); 
 }
 
@@ -57,17 +58,39 @@ function setRandom() { // Set a random number to a section on the screen
 }
 
 function unfadeElem() { // After the timer. 
-	var elem = document.getElementById("hiddenobj");
-	unfade(elem); // Unfade the result of the rng
-	var amount = Number(document.getElementById("rng").innerHTML); // Find the final amount
-	if (amount % 2 === 0) { // even - lose 
-		money = money - amount; 
-		document.getElementById("roundDescription").innerHTML = "The result was even, so you lose $" + amount.toString(); 
-	} else { // odd - win
-		money = money + amount; 
-		document.getElementById("roundDescription").innerHTML = "The result was odd, so you win $" + amount.toString(); 
+	if (rounds < 20) { // Normal round 
+		var elem = document.getElementById("hiddenobj");
+		unfade(elem); // Unfade the result of the rng
+
+		var amount = Number(document.getElementById("rng").innerHTML); // Find the final amount
+		if (amount % 2 === 0) { // even - lose 
+			money = money - amount; 
+			document.getElementById("roundDescription").innerHTML = "The result was even, so you lose $" + amount.toString(); 
+		} else { // odd - win
+			money = money + amount; 
+			document.getElementById("roundDescription").innerHTML = "The result was odd, so you win $" + amount.toString(); 
+		}
+		reset(); // Reset the trial number and money change
+	} else { // Final Round 
+		var elem = document.getElementById("hiddenobj");
+		unfade(elem); // Unfade the result of the rng
+
+		// Unfade the back out and continue buttons, fade in the "finish" button
+		document.getElementById("buttonDivNormal").style.display="none"; 
+		document.getElementById("buttonDivEnd").style.display="block";
+
+		// Continue as regular
+		var amount = Number(document.getElementById("rng").innerHTML); // Find the final amount
+		if (amount % 2 === 0) { // even - lose 
+			money = money - amount; 
+			document.getElementById("roundDescription").innerHTML = "The result was even, so you lose $" + amount.toString(); 
+		} else { // odd - win
+			money = money + amount; 
+			document.getElementById("roundDescription").innerHTML = "The result was odd, so you win $" + amount.toString(); 
+		}
+		rounds -= 1; // So that instead of setting trial as 21/20, stays at 20/20
+		reset(); // Reset the trial number and money change
 	}
-	reset(); // Update the information 
 }
 
 function reset() { // Update information 
