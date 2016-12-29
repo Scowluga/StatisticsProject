@@ -29,7 +29,7 @@
 		<p>Upon play, a random number between 0-10 (inclusive) will be generated. If the number is even, you will lose that much money, but if the number is odd, you will gain that much money. </p>
 		<p>Do you continue, taking a risk? Or back out, wasting your ticket? 
 		<div id="buttonsdisplay">
-			<button type="button" class="btn btn-danger" onclick="endgame()" style="display:inline-block;">Back out</button>
+			<button type="button" class="btn btn-danger" onclick="endgame(false)" style="display:inline-block;">Back out</button>
 			<button type="button" class="btn btn-success" onclick="proceed()" style="display:inline-block;"">Play</button>
 		</div>
 	</div>
@@ -40,11 +40,11 @@
 			<p id="roundDescription">Loss / gain : ____</p>
 			<div id="buttonsdisplay">
 				<div id="buttonDivNormal">
-					<button type="button" class="btn btn-danger" onclick="endgame()" style="display:inline-block;">Back out</button>
+					<button type="button" class="btn btn-danger" onclick="endgame(false)" style="display:inline-block;">Back out</button>
 					<button type="button" class="btn btn-success" onclick="proceed()" style="display:inline-block;"">Re-play</button>
 				</div>
 				<div id="buttonDivEnd" style="display: none;">
-					<button type="button" class="btn btn-info" onclick="endgame()">Finish</button>
+					<button type="button" class="btn btn-info" onclick="endgame(true)">Finish</button>
 				</div>
 			</div>
 		</div>

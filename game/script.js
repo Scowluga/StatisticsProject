@@ -4,8 +4,9 @@ var ticketCost = getTicketCost();
 var rounds = 1; // default to first round 
 var money = 0;  // default to no change in money
 
-// Functions: Organized generally in order of call  
+const numberRounds = 20; // Controls the math portion. Doesn't control html (aka "x / 20 rounds"); 
 
+// Functions: Organized generally in order of call  
 function getTicketCost() { // get ticket cost. Changes to test rounds lasted
     return (Math.round(Math.random() * 4) + 1) * 5; // 5, 10, 15, 20, 25 
 } 
@@ -17,9 +18,11 @@ function createTicket() { // Setting the proper fields with the ticketCost
 }
 
 function buyTicket() { // Choosing to buy the ticket, shows next block of text 
-	var element1 = document.getElementById("buybutton").style.display='none'; 
-	var element2 = document.getElementById("description");
-	unfade(element2);
+	if (confirm("Are you sure you want to buy the $" + ticketCost + " ticket? That's a lot of money!")) {
+		var element1 = document.getElementById("buybutton").style.display='none'; 
+		var element2 = document.getElementById("description");
+		unfade(element2);
+	}
 }
 
 function begingame() { // begins the game. Sets the first section as visible, hides introduction
@@ -35,13 +38,17 @@ function proceed() { // Proceed to play the game.
 	setTimeout(unfadeElem, 2750); // After the timer
 }
 
-function endgame() { // Ends the game. 
-	// rounds and ticketCost contain information 
-	document.getElementById("firstsection").style.display="none"; 
-	document.getElementById("secondsection").style.display="none"; 
-	document.getElementById("lasted").innerHTML = (rounds - 1).toString(); 
-	document.getElementById("cost").innerHTML = (ticketCost).toString(); 
-	unfade(document.getElementById("lastsection")); 
+function endgame(lastRound) { // Ends the game. 
+	if (lastRound || confirm("Are you sure you want to back out? You will waste $" + ticketCost + ". That's a lot of money!")) {
+		document.getElementById("firstsection").style.display="none"; 
+		document.getElementById("secondsection").style.display="none"; 
+		// Since rounds is the current round, they lasted rounds - 1 rounds total. 
+		document.getElementById("lasted").innerHTML = (rounds - 1).toString(); 
+		document.getElementById("cost").innerHTML = (ticketCost).toString(); 
+		unfade(document.getElementById("lastsection")); 
+
+		// Displayed is the final number of rounds they lasted, or how many times they clicked the 'proceed / play' button. 
+	}
 }
 
 
@@ -54,11 +61,11 @@ function rng() { // Sets timers
 }
 
 function setRandom() { // Set a random number to a section on the screen
-	document.getElementById("rng").innerHTML = Math.round(Math.random()* 10); 
+	document.getElementById("rng").innerHTML = Math.round(Math.random()* 10); // 0-10 inclusive
 }
 
 function unfadeElem() { // After the timer. 
-	if (rounds < 20) { // Normal round 
+	if (rounds < numberRounds) { // Normal round 
 		var elem = document.getElementById("hiddenobj");
 		unfade(elem); // Unfade the result of the rng
 
@@ -71,7 +78,7 @@ function unfadeElem() { // After the timer.
 			document.getElementById("roundDescription").innerHTML = "The result was odd, so you win $" + amount.toString(); 
 		}
 		reset(); // Reset the trial number and money change
-	} else { // Final Round 
+	} else { // rounds === numberRounds. Implies it's the final round possible. 
 		var elem = document.getElementById("hiddenobj");
 		unfade(elem); // Unfade the result of the rng
 
@@ -90,6 +97,7 @@ function unfadeElem() { // After the timer.
 		}
 		rounds -= 1; // So that instead of setting trial as 21/20, stays at 20/20
 		reset(); // Reset the trial number and money change
+		rounds += 1; // So set back to 21. 
 	}
 }
 
