@@ -26,7 +26,8 @@
 			<p class="accentInfo">Money Loss/Gained: $<span id="moneychange">0</span></p>
 			<p class="accentInfo" style="display:inline;">Trial: <span id="trialnumber">1</span>/20</p>
 		</div>
-		<p>Upon play, a random number between 0-10 (inclusive) will be generated. If the number is even, you will lose that much money, but if the number is odd, you will gain that much money. </p>
+		<p>Upon play, a random number between 0-10 (inclusive) will be generated.</p>
+		<p>If the number is even, you will lose that much money, but if the number is odd, you will gain that much money. </p>
 		<p>Do you continue, taking a risk? Or back out, wasting your ticket? 
 		<div id="buttonsdisplay">
 			<button type="button" class="btn btn-danger" onclick="endgame(false)" style="display:inline-block;">Back out</button>
@@ -51,11 +52,10 @@
 	</div>
 
 	<div id="lastsection" style="opacity:0;">
-		<h3>The Game is Complete</h3>
+		<h3>Thanks for playing!</h3>
 		<p>To finish the survey, please fill out <a target="_blank" href="http://www.facebook.com">this form.</a></p>
-		<h4>You lasted <span id="lasted">0</span> round(s), with a ticket cost of <span id="cost">0</span>.</h4>
-		<p>Please fill out the first two fields as such and <strong>thanks for playing!</strong> </p>
-		<button type="button" class="btn btn-info"><a class="ref" target="_blank" href="http://www.facebook.com">Go to Form</a></button>
+		<h4>You lasted <span id="lasted">0</span> round(s), with a ticket cost of $<span id="cost">0</span>.</h4>
+		<a id="formLink" href="http://google.com" type="button" class="btn btn-info" target="_blank">Go to Form</a>
 	</div>
 
 	<script> createTicket() </script>

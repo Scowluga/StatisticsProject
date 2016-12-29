@@ -40,13 +40,17 @@ function proceed() { // Proceed to play the game.
 
 function endgame(lastRound) { // Ends the game. 
 	if (lastRound || confirm("Are you sure you want to back out? You will waste $" + ticketCost + ". That's a lot of money!")) {
+		// Set what must be seen / not seen 
 		document.getElementById("firstsection").style.display="none"; 
 		document.getElementById("secondsection").style.display="none"; 
 		// Since rounds is the current round, they lasted rounds - 1 rounds total. 
-		document.getElementById("lasted").innerHTML = (rounds - 1).toString(); 
+		rounds -= 1; 
+		document.getElementById("lasted").innerHTML = (rounds).toString(); 
 		document.getElementById("cost").innerHTML = (ticketCost).toString(); 
 		unfade(document.getElementById("lastsection")); 
 
+		// Link to pre populated google form 
+		document.getElementById("formLink").href="https://docs.google.com/forms/d/e/1FAIpQLSdPvo9OQP_-neUyDhT4FV4PJCSItr-jy9lDGsvdtL5Nutn1Og/viewform?entry.1278106006=" + rounds + "&entry.147890848=$" + ticketCost;
 		// Displayed is the final number of rounds they lasted, or how many times they clicked the 'proceed / play' button. 
 	}
 }
