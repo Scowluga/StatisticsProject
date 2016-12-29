@@ -5,4 +5,4 @@
 <h3>Study</h3>
 <p>Data will be collected from this short interactive survey: a website followed by a prepopulated Google form. </p>
 <p>The data will then be analyzed using a variety of techniques, through R Studio. </p>
-<a href="https://scowluga.github.io/StatisticsProject/." target="blank">Go to Website</a>
+<a href="https://scowluga.github.io/StatisticsProject/" target="_blank">Go to Website</a>
