@@ -8,7 +8,7 @@ const numberRounds = 20; // Controls the math portion. Doesn't control html (aka
 
 // Functions: Organized generally in order of call  
 function getTicketCost() { // get ticket cost. Changes to test rounds lasted
-    return (Math.round(Math.random() * 4) + 1) * 5; // 5, 10, 15, 20, 25 
+    return (Math.round(Math.random() * 5)) * 10; // 5, 10, 15, 20, 25 
 } 
 
 function createTicket() { // Setting the proper fields with the ticketCost
@@ -18,11 +18,14 @@ function createTicket() { // Setting the proper fields with the ticketCost
 }
 
 function buyTicket() { // Choosing to buy the ticket, shows next block of text 
-	if (confirm("Are you sure you want to buy the $" + ticketCost + " ticket? That's a lot of money!")) {
-		var element1 = document.getElementById("buybutton").style.display='none'; 
-		var element2 = document.getElementById("description");
-		unfade(element2);
-	}
+	var element1 = document.getElementById("buybutton").style.display='none'; 
+	var element2 = document.getElementById("description");
+	var trials = document.getElementById("trialInfo"); 
+	trials.style.display="block"; 
+	unfade(trials); 
+	unfade(element2);
+	money -= ticketCost; 
+	document.getElementById("moneychange").innerHTML = (money).toString(); 
 }
 
 function begingame() { // begins the game. Sets the first section as visible, hides introduction
@@ -39,10 +42,11 @@ function proceed() { // Proceed to play the game.
 }
 
 function endgame(lastRound) { // Ends the game. 
-	if (lastRound || confirm("Are you sure you want to back out? You will waste $" + ticketCost + ". That's a lot of money!")) {
+	if (lastRound || confirm("Back Out?")) {
 		// Set what must be seen / not seen 
 		document.getElementById("firstsection").style.display="none"; 
 		document.getElementById("secondsection").style.display="none"; 
+		document.getElementById("infoBox").style.display="none"; 
 		// Since rounds is the current round, they lasted rounds - 1 rounds total. 
 		rounds -= 1; 
 		document.getElementById("lasted").innerHTML = (rounds).toString(); 
@@ -50,7 +54,7 @@ function endgame(lastRound) { // Ends the game.
 		unfade(document.getElementById("lastsection")); 
 
 		// Link to pre populated google form 
-		document.getElementById("formLink").href="https://docs.google.com/forms/d/e/1FAIpQLSdPvo9OQP_-neUyDhT4FV4PJCSItr-jy9lDGsvdtL5Nutn1Og/viewform?entry.1278106006=" + rounds + "&entry.147890848=$" + ticketCost;
+		document.getElementById("formLink").href="https://docs.google.com/forms/d/e/1FAIpQLSdPvo9OQP_-neUyDhT4FV4PJCSItr-jy9lDGsvdtL5Nutn1Og/viewform?entry.1278106006=" + rounds + "&entry.147890848=$" + ticketCost + "&entry.1642132744=" + money; 
 		// Displayed is the final number of rounds they lasted, or how many times they clicked the 'proceed / play' button. 
 	}
 }

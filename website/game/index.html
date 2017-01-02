@@ -9,9 +9,14 @@
 <script type="text/javascript" src="script.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css"/>
 
+	<div id="infoBox" class="accentDiv">
+		<p class="accentInfo">Ticket Cost: $<span id="ticketCost2"</p>
+		<p class="accentInfo" style="display:inline-block">Money $: <span id="moneychange">0</span></p>
+		<p class="accentInfo" id="trialInfo" style="display:none;">Trial: <span id="trialnumber">1</span>/20</p>
+	</div>
 	<div id="introsection">
-		<h1>Introduction</h1>
-		<p>You've heard about an amazing probability game, but you have to buy a ticket for it. The ticket costs $<span id="ticketCost">20</span>.</p>
+		<p>You've heard about an amazing probability game, but you have to buy a ticket for it. </p>
+		<p>You start with $0 and the ticket costs $<span id="ticketCost">20</span>.</p>
 		<button type="button" class="btn btn-primary" onclick="buyTicket()" id="buybutton">Buy Ticket</button>
 
 		<div id="description" style="opacity: 0;">
@@ -21,11 +26,6 @@
 	</div>
 
 	<div id="firstsection" style="display:none;">
-		<div class="accentDiv">
-			<p class="accentInfo">Ticket Cost: $<span id="ticketCost2"</p>
-			<p class="accentInfo">Money Loss/Gained: $<span id="moneychange">0</span></p>
-			<p class="accentInfo" style="display:inline;">Trial: <span id="trialnumber">1</span>/20</p>
-		</div>
 		<p>Upon play, a random number between 0-10 (inclusive) will be generated.</p>
 		<p>If the number is even, you will lose that much money, but if the number is odd, you will gain that much money. </p>
 		<p>Do you continue, taking a risk? Or back out, wasting your ticket? 
