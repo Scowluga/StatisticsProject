@@ -2,7 +2,7 @@
 // Variables 
 var ticketCost = getTicketCost(); 
 var rounds = 1; // default to first round 
-var money = 0;  // default to no change in money
+var money = 50;  // default to no change in money
 
 const numberRounds = 20; // Controls the math portion. Doesn't control html (aka "x / 20 rounds"); 
 
