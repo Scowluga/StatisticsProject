@@ -8,7 +8,7 @@ const numberRounds = 20; // Controls the math portion. Doesn't control html (aka
 
 // Functions: Organized generally in order of call  
 function getTicketCost() { // get ticket cost. Changes to test rounds lasted
-    return (Math.round(Math.random() * 5)) * 10; // 5, 10, 15, 20, 25 
+    return (Math.round(Math.random() * 5)) * 10; // 0, 10, 20, 30, 40, 50
 } 
 
 function createTicket() { // Setting the proper fields with the ticketCost
