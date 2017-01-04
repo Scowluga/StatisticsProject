@@ -11,17 +11,21 @@
 
 	<div id="infoBox" class="accentDiv">
 		<p class="accentInfo">Ticket Cost: $<span id="ticketCost2"</p>
-		<p class="accentInfo" style="display:inline-block">Money $: <span id="moneychange">50</span></p>
+		<p class="accentInfo" style="display:inline-block">Money $: <span id="moneychange">0</span></p>
 		<p class="accentInfo" id="trialInfo" style="display:none;">Trial: <span id="trialnumber">1</span>/20</p>
 	</div>
-	<div id="introsection">
-		<p>You've heard about an amazing probability game, but you have to buy a ticket for it. </p>
-		<p>You start with $50 and the ticket costs $<span id="ticketCost">20</span>.</p>
-		<button type="button" class="btn btn-primary" onclick="buyTicket()" id="buybutton">Buy Ticket</button>
 
-		<div id="description" style="opacity: 0;">
+	<div id="introsection">
+		<p>A game requires you to buy a $<span id="ticketCost">20</span> ticket, but you're broke. </p>
+		<p>However, for everytime you click the button, you earn money.</p>
+		
+		<button type="button" class="btn btn-default" onclick="incrementMoney();" id="incrementButton">0</button>
+		
+		<button type="button" class="btn btn-primary" onclick="buyTicket()" id="buybutton" style="display:none">Buy Ticket</button>
+
+		<div id="description">
 			<p>The ticket pays for 20 trials of the probability game. You may finish all 20 trials, or at any point you may back out of the game.</p>
-			<button type="button" class="btn btn-primary" onclick="begingame()">Start</button>
+			<button type="button" class="btn btn-primary" onclick="begingame()" id="beginButton">Start</button>
 		</div>
 	</div>
 
@@ -60,3 +64,4 @@
 	<script> createTicket() </script>
 </body>
 </html>
+

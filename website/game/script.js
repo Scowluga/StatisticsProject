@@ -2,18 +2,37 @@
 // Variables 
 var ticketCost = getTicketCost(); 
 var rounds = 1; // default to first round 
-var money = 50;  // default to no change in money
+var money = 0;  // default to no change in money
 
 const numberRounds = 20; // Controls the math portion. Doesn't control html (aka "x / 20 rounds"); 
 
 // Functions: Organized generally in order of call  
 function getTicketCost() { // get ticket cost. Changes to test rounds lasted
-    return (Math.round(Math.random() * 5)) * 10; // 0, 10, 20, 30, 40, 50
+    return (Math.round(Math.random() * 5)) * 5; // 0, 5, 10, 15, 20, 25
 } 
 
 function createTicket() { // Setting the proper fields with the ticketCost
 	document.getElementById("ticketCost").innerHTML = ticketCost.toString(); 
 	document.getElementById("ticketCost2").innerHTML = ticketCost.toString(); 
+
+}
+
+function incrementMoney() {
+	var btn = document.getElementById("incrementButton"); 
+	money += 1; 
+	btn.innerHTML = money.toString(); 
+	document.getElementById("moneychange").innerHTML = (money).toString(); 
+
+	var left = Math.round(Math.random() * 95)
+	var top = Math.round(Math.random() * 95)
+	btn.style.left = left + "%"; 
+	btn.style.top = top + "%"; 
+
+	if (money === ticketCost) {
+		var btnBuy = document.getElementById("buybutton"); 
+		btnBuy.style.display="block"; 
+		// unfade(btnBuy); 
+	}
 
 }
 
@@ -23,6 +42,7 @@ function buyTicket() { // Choosing to buy the ticket, shows next block of text
 	var trials = document.getElementById("trialInfo"); 
 	trials.style.display="block"; 
 	unfade(trials); 
+	element2.style.display="block";
 	unfade(element2);
 	money -= ticketCost; 
 	document.getElementById("moneychange").innerHTML = (money).toString(); 
@@ -126,3 +146,4 @@ function unfade(element) { // For flow. Unfades an element
         op += op * 0.1;
     }, 10);
 }
+

@@ -24,3 +24,24 @@
 .ref { 
 	color:white;
 }
+
+.gameDiv {
+	display:block;
+	width: 100%; 
+	height: 100%; 
+	border: thin solid black; 
+
+}
+
+#incrementButton {
+	position: absolute;
+	z-index: 10;
+	display:block;
+	width:50px; 
+	height:50px;
+}
+
+#description {
+	display:none;
+	opacity: 0;
+}
