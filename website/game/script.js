@@ -4,6 +4,7 @@ var ticketCost = getTicketCost();
 var rounds = 1; // default to first round 
 var money = 0;  // default to no change in money
 
+var startMoney; // The money they start the game yet (accounts for if they earned more money than necessary)
 const numberRounds = 20; // Controls the math portion. Doesn't control html (aka "x / 20 rounds"); 
 
 // Functions: Organized generally in order of call  
@@ -54,6 +55,7 @@ function buyTicket() { // Choosing to buy the ticket, shows next block of text
 }
 
 function begingame() { // begins the game. Sets the first section as visible, hides introduction
+	startMoney = money; 
 	document.getElementById("introsection").style.display="none";
 	document.getElementById("firstsection").style.display="block"; 
 }
@@ -79,7 +81,7 @@ function endgame(lastRound) { // Ends the game.
 		unfade(document.getElementById("lastsection")); 
 
 		// Link to pre populated google form 
-		document.getElementById("formLink").href="https://docs.google.com/forms/d/e/1FAIpQLSdPvo9OQP_-neUyDhT4FV4PJCSItr-jy9lDGsvdtL5Nutn1Og/viewform?entry.1278106006=" + rounds + "&entry.147890848=$" + ticketCost + "&entry.1642132744=" + money; 
+		document.getElementById("formLink").href="https://docs.google.com/forms/d/e/1FAIpQLSdPvo9OQP_-neUyDhT4FV4PJCSItr-jy9lDGsvdtL5Nutn1Og/viewform?entry.1278106006=" + rounds + "&entry.147890848=$" + ticketCost + "&entry.1642132744=" + (money - startMoney); 
 		// Displayed is the final number of rounds they lasted, or how many times they clicked the 'proceed / play' button. 
 	}
 }
