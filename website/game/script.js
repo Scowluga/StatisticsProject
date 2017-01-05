@@ -8,7 +8,7 @@ const numberRounds = 20; // Controls the math portion. Doesn't control html (aka
 
 // Functions: Organized generally in order of call  
 function getTicketCost() { // get ticket cost. Changes to test rounds lasted
-    var num = (Math.round(Math.random() * 5)) * 5; // 0, 5, 10, 15, 20, 25
+    var num = (Math.floor(Math.random() * 6)) * 5; // 1, 5, 10, 15, 20, 25
     if (num === 0) {
     	return 1; 
     } else {
@@ -28,8 +28,8 @@ function incrementMoney() {
 	btn.innerHTML = money.toString(); 
 	document.getElementById("moneychange").innerHTML = (money).toString(); 
 
-	var left = Math.round(Math.random() * 95)
-	var top = Math.round(Math.random() * 95)
+	var left = Math.floor(Math.random() * 95)
+	var top = Math.floor(Math.random() * 95)
 	btn.style.left = left + "%"; 
 	btn.style.top = top + "%"; 
 
@@ -79,7 +79,7 @@ function endgame(lastRound) { // Ends the game.
 		unfade(document.getElementById("lastsection")); 
 
 		// Link to pre populated google form 
-		document.getElementById("formLink").href= "https://docs.google.com/forms/d/e/1FAIpQLSdPvo9OQP_-neUyDhT4FV4PJCSItr-jy9lDGsvdtL5Nutn1Og/viewform?entry.1051975222&entry.1130850895=" + ticketCost + "&entry.571258578=" + rounds + "&entry.1545061294=" + money; 
+		document.getElementById("formLink").href= "https://docs.google.com/forms/d/e/1FAIpQLSdPvo9OQP_-neUyDhT4FV4PJCSItr-jy9lDGsvdtL5Nutn1Og/viewform?entry.1051975222&entry.1130850895=" + ticketCost.toString() + "&entry.571258578=" + rounds + "&entry.1545061294=" + money; 
 		// Displayed is the final number of rounds they lasted, or how many times they clicked the 'proceed / play' button. 
 	}
 }
@@ -94,7 +94,7 @@ function rng() { // Sets timers
 }
 
 function setRandom() { // Set a random number to a section on the screen
-	document.getElementById("rng").innerHTML = Math.round(Math.random()* 10); // 0-10 inclusive
+	document.getElementById("rng").innerHTML = Math.floor(Math.random()* 11); // 0-10 inclusive
 }
 
 function unfadeElem() { // After the timer. 
