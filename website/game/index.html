@@ -5,10 +5,6 @@
 	<title>Game of Chance</title>
 </head>
 <body class="body">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-<script type="text/javascript" src="script.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css"/>
-
 	<div id="infoBox" class="accentDiv">
 		<p class="accentInfo">Ticket Cost: $<span id="ticketCost2"</p>
 		<p class="accentInfo" style="display:inline-block">Money $: <span id="moneychange">0</span></p>
@@ -16,8 +12,8 @@
 	</div>
 
 	<div id="introsection">
-		<p>A game requires you to buy a $<span id="ticketCost">20</span> ticket, but you're broke. </p>
-		<p>However, for everytime you click the button, you earn money.</p>
+		<p id="uselessInfo1">A game requires you to buy a $<span id="ticketCost">20</span> ticket, but you're broke. </p>
+		<p id="uselessInfo2">However, for everytime you click the button, you earn money.</p>
 		
 		<button type="button" class="btn btn-info btn-group-lg" onclick="incrementMoney();" id="incrementButton">0</button>
 		
@@ -60,6 +56,10 @@
 		<h4>You lasted <span id="lasted">0</span> round(s), with a ticket cost of $<span id="cost">0</span>.</h4>
 		<a id="formLink" href="http://google.com" type="button" class="btn btn-info" target="_blank">Go to Form</a>
 	</div>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+	<script type="text/javascript" src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 
 	<script> createTicket() </script>
 </body>

@@ -4,16 +4,25 @@ var ticketCost = getTicketCost();
 var rounds = 1; // default to first round 
 var money = 0;  // default to no change in money
 
+var isFree = false; 
+
 const numberRounds = 20; // Controls the math portion. Doesn't control html (aka "x / 20 rounds"); 
 
 // Functions: Organized generally in order of call  
 function getTicketCost() { // get ticket cost. Changes to test rounds lasted
-    var num = (Math.floor(Math.random() * 6)) * 5; // 1, 5, 10, 15, 20, 25
-    if (num === 0) {
-    	return 1; 
-    } else {
-    	return num; 
+    var num = (Math.floor(Math.random() * 6)) * 5; // 0, 5, 10, 15, 20, 25
+    if (num < 1) { // num is 0 
+    	var btnBuy = document.getElementById("buybutton"); 
+		btnBuy.style.display="block"; 
+		btnBuy.innerHTML = "Get Ticket"; 
+		document.getElementById("incrementButton").style.display="none"; 
+
+		document.getElementById("uselessInfo1").innerHTML="There's a free ticket to a game."
+		document.getElementById("uselessInfo2").style.display="none"; 
+
+		document.getElementById("ticketCost2").innerHTML = 0; 
     }
+    return num; 
 } 
 
 function createTicket() { // Setting the proper fields with the ticketCost
@@ -28,10 +37,10 @@ function incrementMoney() {
 	btn.innerHTML = money.toString(); 
 	document.getElementById("moneychange").innerHTML = (money).toString(); 
 
-	var left = Math.floor(Math.random() * 95)
-	var top = Math.floor(Math.random() * 95)
-	btn.style.left = left + "%"; 
-	btn.style.top = top + "%"; 
+	var leftPercent = Math.floor(Math.random() * 75);
+	var topPercent = Math.floor(Math.random() * 75);
+
+	btn.style.transform = "translate(" + topPercent + "vw, " + leftPercent + "vh)"; 
 
 	if (money === ticketCost) {
 		var btnBuy = document.getElementById("buybutton"); 
